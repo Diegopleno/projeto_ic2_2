@@ -20,9 +20,3 @@ services:
       - "54321:80"
     depends_on:
       - postgres
-    environment:
-          HOST: localhost
-          USER: root
-          PASSWORD: root
-          DBNAME: root
-          PORT: 5432
