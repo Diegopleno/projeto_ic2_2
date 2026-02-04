@@ -15,11 +15,16 @@ jobs:
       postgres:
         image: postgres:17    
         env:
-          DB_HOST: localhost
-          DB_USER: root
-          DB_PASSWORD: root
-          DB_NAME: root
-          DB_PORT: 5432:5432
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: root
+          POSTGRES_DB: root
+#          DB_HOST: localhost
+#          DB_USER: root
+#          DB_PASSWORD: root
+#          DB_NAME: root
+#          DB_PORT: 5432:5432
+        ports:
+          - 5432:5432
     
     strategy:
       matrix:
@@ -33,14 +38,20 @@ jobs:
       with:
         go-version: ${{ matrix.go_version }}
       
-    - name: Build-DB
-      run: docker compose build
-      
-    - name: Create-DB
-      run: docker compose up -d
-
+#    - name: Build-DB
+#      run: docker compose build
+#      
+#    - name: Create-DB
+#      run: docker compose up -d
+#
     - name: Test
       run: go test -v main_test.go 
+      env:
+        DB_HOST: postgres
+        DB_USER: root
+        DB_PASSWORD: root
+        DB_NAME: root
+        DB_PORT: "5432"
       
   
   build:
