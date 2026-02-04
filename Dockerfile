@@ -4,8 +4,8 @@ FROM ubuntu:latest
 EXPOSE 8000
 WORKDIR /app
 
-ENV HOST=localhost PORT=5432
-ENV USER=root PASSWORD=root DBNAME=root 
+ENV DB_HOST=postgres DB_PORT=5432
+ENV DB_USER=root DB_PASSWORD=root DB_DBNAME=root 
 
 COPY ./main main
 CMD [ "./main" ]
