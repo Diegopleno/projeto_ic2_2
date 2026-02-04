@@ -5,7 +5,7 @@ EXPOSE 8000
 WORKDIR /app
 
 ENV HOST=localhost PORT=5432
-ENV USER=root PASSWORD=root DBNAME=root 
+ENV USER=root PASSWORD=root DBNAME=postgres 
 
 COPY ./main main
 CMD [ "./main" ]
