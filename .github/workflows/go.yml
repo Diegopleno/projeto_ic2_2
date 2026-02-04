@@ -7,15 +7,15 @@ on:
     branches: [ Aula_1 ]
 
 jobs:
-
   test:
     runs-on: ubuntu-latest
     env:
-    HOST: localhost
-    PORT: 5432
-    USER: root
-    PASSWORD: root
-    DBNAME: root
+      HOST: localhost
+      PORT: 5432
+      USER: root
+      PASSWORD: root
+      DBNAME: root
+    
     strategy:
       matrix:
         go_version: ['1.18', '1.17', '>=1.18']
