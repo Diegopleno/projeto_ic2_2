@@ -7,7 +7,7 @@ services:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=root      
     ports:
-      - "5432:5432"
+      - 5432:5432
     volumes:
       - /postgres-data:/var/lib/postgresql/data  
 
@@ -20,4 +20,9 @@ services:
       - "54321:80"
     depends_on:
       - postgres
-
+    environment:
+          HOST: localhost
+          USER: root
+          PASSWORD: root
+          DBNAME: root
+          PORT: 5432
