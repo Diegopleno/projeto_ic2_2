@@ -9,11 +9,7 @@ on:
 jobs:
 
   test:
-<<<<<<< HEAD
-    runs-on: ubuntu-latest
-=======
     runs-on: ${{ matrix.os }}
->>>>>>> 067358d2331e7d68b44fd589b68e61472f0cb077
     env:
       HOST: localhost
       PORT: 5432
