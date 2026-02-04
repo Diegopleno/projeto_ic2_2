@@ -10,12 +10,16 @@ jobs:
 
   test:
     runs-on: ${{ matrix.os }}
-    env:
-      DB_HOST: postgres
-      DB_USER: root
-      DB_PASSWORD: root
-      DB_DBNAME: root
-      DB_PORT: 5432
+
+    services:
+      postgres:
+        image: postgres:17    
+        env:
+#          DB_HOST: postgres
+          DB_USER: root
+          DB_PASSWORD: root
+          DB_DBNAME: root
+          DB_PORT: 5432:5432
     
     strategy:
       matrix:
